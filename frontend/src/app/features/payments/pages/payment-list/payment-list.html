@@ -1,0 +1,37 @@
+<div class="page-container">
+  <div class="page-header">
+    <h2>Lista de pagos</h2>
+    <a routerLink="/payments/new" class="btn-link">Crear nuevo pago</a>
+  </div>
+
+  <div *ngIf="loading" class="info-message">
+    Cargando pagos...
+  </div>
+
+  <div *ngIf="error" class="error-message">
+    {{ error }}
+  </div>
+
+  <table *ngIf="!loading && !error" class="payments-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Cliente</th>
+        <th>Monto</th>
+        <th>Estado</th>
+        <th>Detalle</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let payment of payments">
+        <td>{{ payment.id }}</td>
+        <td>{{ payment.customerName }}</td>
+        <td>{{ payment.amount }}</td>
+        <td>{{ payment.status }}</td>
+        <td>
+          <a [routerLink]="['/payments', payment.id]">Ver detalle</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,30 @@
+.page-container {
+  padding: 20px;
+  max-width: 500px;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.payment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group input {
+  padding: 8px;
+}
+
+.error-message {
+  color: red;
+}

@@ -1,0 +1,29 @@
+.page-container {
+    padding: 20px;
+  }
+   
+  .page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+   
+  .info-message {
+    margin-bottom: 12px;
+  }
+   
+  .error-message {
+    color: red;
+    margin-bottom: 12px;
+  }
+   
+  .payment-card {
+    border: 1px solid #ccc;
+    padding: 16px;
+    margin-bottom: 20px;
+  }
+   
+  .events-list {
+    padding-left: 20px;
+  }

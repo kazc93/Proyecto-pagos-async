@@ -1,0 +1,11 @@
+# Raíz del monorepo (frontend/backend ya tienen sus propios .gitignore)
+/node_modules/
+.DS_Store
+*.log
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# macOS / AppleDouble (no subir)
+**/.DS_Store
+**/._*

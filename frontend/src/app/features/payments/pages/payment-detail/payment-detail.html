@@ -1,0 +1,31 @@
+<div class="page-container">
+    <div class="page-header">
+      <h2>Detalle del pago</h2>
+      <a routerLink="/payments">Volver a la lista</a>
+    </div>
+   
+    <div *ngIf="loading" class="info-message">
+      Cargando detalle...
+    </div>
+   
+    <div *ngIf="error" class="error-message">
+      {{ error }}
+    </div>
+   
+    <div *ngIf="payment && !loading" class="payment-card">
+      <p><strong>ID:</strong> {{ payment.id }}</p>
+      <p><strong>Cliente:</strong> {{ payment.customerName }}</p>
+      <p><strong>Monto:</strong> {{ payment.amount }}</p>
+      <p><strong>Estado:</strong> {{ getStatusText(payment.status) }}</p>
+      <p><strong>Riesgo:</strong> {{ payment.riskScore ?? 'N/A' }}</p>
+      <p><strong>Motivo de rechazo:</strong> {{ payment.rejectionReason || 'N/A' }}</p>
+    </div>
+   
+    <h3>Eventos del pago</h3>
+   
+    <ul class="events-list">
+      <li *ngFor="let event of events">
+        <strong>{{ event.step }}</strong> - {{ event.message }} - {{ event.createdAt | date:'dd/MM/yyyy HH:mm:ss' }}
+      </li>
+    </ul>
+  </div>
