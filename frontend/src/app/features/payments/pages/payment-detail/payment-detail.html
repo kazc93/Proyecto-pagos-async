@@ -16,7 +16,45 @@
       <p><strong>ID:</strong> {{ payment.id }}</p>
       <p><strong>Cliente:</strong> {{ payment.customerName }}</p>
       <p><strong>Monto:</strong> {{ payment.amount }}</p>
-      <p><strong>Estado:</strong> {{ getStatusText(payment.status) }}</p>
+      <div class="status-container">
+  <p>
+    <strong>Estado:</strong>
+    {{ getStatusText(payment.status) }}
+  </p>
+ 
+  <div
+    *ngIf="
+      payment.status === 'PENDING' ||
+      payment.status === 'PROCESSING'
+    "
+    class="processing-box"
+  >
+    <div class="spinner"></div>
+ 
+    <span>
+      {{
+        payment.status === 'PENDING'
+          ? 'Pago recibido. Esperando procesamiento...'
+          : 'Procesando pago...'
+      }}
+    </span>
+  </div>
+ 
+  <div
+    *ngIf="payment.status === 'APPROVED'"
+    class="success-box"
+  >
+    ✅ Pago aprobado correctamente
+  </div>
+ 
+  <div
+    *ngIf="payment.status === 'REJECTED'"
+    class="error-box"
+  >
+    ❌ Pago rechazado
+  </div>
+</div>
+
       <p><strong>Riesgo:</strong> {{ payment.riskScore ?? 'N/A' }}</p>
       <p><strong>Motivo de rechazo:</strong> {{ payment.rejectionReason || 'N/A' }}</p>
     </div>
